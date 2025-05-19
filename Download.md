@@ -23,7 +23,7 @@ By downloading, you agree to follow our [license terms](./LICENSE.md) and unders
 - **Disk Space:** 300MB free space  
 - **Internet:** Required for installation and updates  
 
-> *Linux support coming soon.*
+> *Linux support coming in 2027*
 
 ---
 
