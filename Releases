@@ -10,6 +10,13 @@ Welcome to the first public demo release of the Nexus Browser. This is an early 
 - **Background Music:** A selection of calm, looping background tracks play during browsing sessions, adding ambiance.
 - **Sidebar Feedback Panel:** Easily report bugs or suggest features through the sidebar to help us improve future versions.
 - **Basic Browsing Capabilities:** Standard browsing functions like multiple tabs, bookmarking, and basic navigation are enabled.
+- **Nexus AI:** Nexus AI uses **ChatGPT**, **Gemini AI**, **Enhance AI** and **Imagen AI** mixed together for greater capability.
+
+## AI Versions
+- **AI:** ChatGPT **Version:** o4 turbo.
+- **AI:** Gemini AI **Version:** 2.5 pro (experimental).
+- **AI:** Enhance AI **Version:** 3.1 pro turbo.
+- **AI:** Imagen AI **Version:** 5.0
 
 ## Known Issues
 - Some UI elements may not respond perfectly on all devices or screen sizes.
