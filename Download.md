@@ -55,7 +55,7 @@ For detailed instructions, see our [Installation Guide](./INSTALL.md).
 
 ---
 
-## 📅 Release History
+## Release History
 
 - **v0.1-demo** – First public preview with base features and feedback system.
 - **Upcoming:** Performance patches, Linux support, user account integration, and more.
