@@ -29,10 +29,13 @@ By downloading, you agree to follow our [license terms](./LICENSE.md) and unders
 
 ## Download Options
 
-| Version | Type        | Release Date | Download Link |
-|---------|-------------|---------------|----------------|
-| `v0.1-demo` | Demo (First Preview) | May 2025 | [Download.zip](#) |
-| `v1.0` | Stable Release | TBD | Not Yet Available |
+| Version     | Type               | Release Date | Platform       | Download Link         |
+|-------------|--------------------|---------------|----------------|------------------------|
+| `v0.1-demo` | Demo (First Preview) | May 2025     | Windows        | [Download.exe](#)      |
+| `v0.1-demo` | Demo (First Preview) | May 2025     | macOS          | [Download.app](#)      |
+| `v0.1-demo` | Demo (First Preview) | May 2025     | macOS          | [Download.dmg](#)      |
+
+
 
 ---
 
