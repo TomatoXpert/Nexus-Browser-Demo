@@ -2,7 +2,7 @@
 
 To install the Nexus browser demo on your device, follow these steps carefully:
 
-1. **Visit the [Download](./download.md) Page**  
+1. **Vist the [Download](./download.md) Page**  
    Head over to the official Nexus repository and navigate to the **Download** page. Download the latest available **demo build** the file will typically be in `.exe` format for Windows systems.
 
 2. **Run the Installer**  
@@ -18,5 +18,4 @@ To install the Nexus browser demo on your device, follow these steps carefully:
    If you encounter bugs or unexpected behavior, please report them via the **Issues** section in this repository. Your feedback is extremely valuable and helps us improve the final product before the stable release.
 
 > ⚠️ If on macOS navigate to [macOSDownload](./macOSDownload) the file will typically be in `.app` format for macOS systems.
-> 
-
+> Need a Installation Guide for macOS? Vist [macOSInstallationGuide](./macOSInstallationGuide)
