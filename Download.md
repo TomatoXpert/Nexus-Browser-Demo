@@ -43,7 +43,7 @@ By downloading, you agree to follow our [license terms](./LICENSE.md) and unders
 3. Run the `NexusBrowserInstaller.exe` file and follow the setup instructions.
 4. After installation, launch Nexus Browser from your Start Menu or Desktop.
 
-For detailed instructions, see our [Installation Guide](./INSTALL.md).
+For detailed instructions, see our [Installation Guide](./INSTALLGUID.md).
 
 ---
 
