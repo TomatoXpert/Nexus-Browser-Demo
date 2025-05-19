@@ -34,7 +34,7 @@ By downloading, you agree to follow our [license terms](./LICENSE.md) and unders
 | `v0.1-demo` | Demo (First Preview) | May 2025     | Windows        | [NexusBrowserInstaller.exe](#)      |
 | `v0.1-demo` | Demo (First Preview) | May 2025     | macOS          | [NexusBrowserInstaller.app](#)      |
 | `v0.1-demo` | Demo (First Preview) | May 2025     | macOS          | [NexusBrowserInstaller.dmg](#)      |
-| `v1.0`      | Demo (First Preview) | May 2025     | macOS          |   Unreleased                        |
+| `v1.0`      | Stable Release       | TBD           | Windows       | Unreleased                          |
  
 
 
