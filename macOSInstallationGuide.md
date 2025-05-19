@@ -20,4 +20,4 @@ To install the Nexus browser demo on macOS, follow the steps below:
 6. **Report Bugs or Feedback**  
    If you spot any issues or quirks, head to the **Issues** tab in this repository and let us know. We want your feedback to make the full release as stable and smooth as possible.
 
-> ⚠️ If on Windows navigate to [macOS Download](macOSDownload.md) the file will typically be in `.exe` format for Windows systems. Need a Installation Guide for Windows? Vist [Windows Installation Guide](WindowsInstallationGuide.md)
+> ⚠️ If on Windows navigate to [Download](Download.md) the file will typically be in `.exe` format for Windows systems. Need a Installation Guide for Windows? Vist [Windows Installation Guide](WindowsInstallationGuide.md)
