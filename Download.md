@@ -58,7 +58,7 @@ For detailed instructions, see our [Installation Guide](./INSTALL.md).
 ## Release History
 
 - **v0.1-demo:** First public preview with base features and feedback system.
-- **v1.0:** Tab system, search engine integration, settings panel, bookmark manager, history tab. **Security & Privacy:** Incognito mode, cookie/cache management, clear data option, malware URL warning. **UI/UX Upgrades:** Redesigned UI, themes, light/dark/auto modes, drag-and-drop tabs. **Extensions & Extras:** Plugin support, dev tools, download manager. **Performance & Optimization:** Faster loads, less RAM/CPU, faster startup, async tab switching. **Sync:** Account system, sync data, local backup/export. **Feedback & Updates:** Bug reporter, auto-updates, changelog. **Unique Ideas for Nexus:** AI assistant sidebar, Retro XP mode, widget-based New Tab, distraction-blocking Game Mode. 
+- **Upcomming:**Tab system, search engine integration, settings panel, bookmark manager, history tab. **Security & Privacy:** Incognito mode, cookie/cache management, clear data option, malware URL warning. **UI/UX Upgrades:** Redesigned UI, themes, light/dark/auto modes, drag-and-drop tabs. **Extensions & Extras:** Plugin support, dev tools, download manager. **Performance & Optimization:** Faster loads, less RAM/CPU, faster startup, async tab switching. **Sync:** Account system, sync data, local backup/export. **Feedback & Updates:** Bug reporter, auto-updates, changelog. **Unique Ideas for Nexus:** AI assistant sidebar, Retro XP mode, widget-based New Tab, distraction-blocking Game Mode. 
 - **Upcoming:** Performance patches, Linux support, user account integration, and more.
 
 ---
