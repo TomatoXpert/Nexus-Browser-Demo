@@ -26,7 +26,7 @@ Welcome to the first public demo release of the Nexus Browser. This is an early 
 - Performance optimizations are ongoing; expect some lag on low-end devices.
 
 ## How to Install
-1. [Download](./Download.md) the installer from this repository page.
+1. [Download](./Download.md) the installer from this repository.
 2. Run the installer and follow the on-screen instructions carefully.
 3. Once installed, launch Nexus Browser from your desktop or start menu.
 4. We recommend restarting your computer after installation to ensure all components load properly.
