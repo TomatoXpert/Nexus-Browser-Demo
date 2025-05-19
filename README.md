@@ -10,7 +10,7 @@ Please report **ANY** issues.
 This is a demo version. Reporting bugs now ensures that the full release will be more stable and refined, so you won’t encounter the same issues later.
 
 ## Installation Instructions
-1. Download the latest demo build from the [Releases](https://github.com/yourusername/nexus/releases) page.  
+1. Download the latest demo build from the [Releases](TomatoXpert/Nexus-Browser-Demo/main/Releases) page.  
 2. Run the installer and follow the prompts.  
 3. Launch Nexus from your desktop or start menu shortcut.  
 4. Explore the browser and enjoy the features available in this demo version.
