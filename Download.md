@@ -32,7 +32,7 @@ By downloading, you agree to follow our [license terms](./LICENSE.md) and unders
 | Version | Type        | Release Date | Download Link |
 |---------|-------------|---------------|----------------|
 | `v0.1-demo` | Demo (First Preview) | May 2025 | [Download ZIP](#) |
-| `Coming Soon` | Stable Release | TBD | Not Yet Available |
+| `v1.0` | Stable Release | TBD | Not Yet Available |
 
 ---
 
