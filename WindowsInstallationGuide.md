@@ -17,5 +17,5 @@ To install the Nexus browser demo on your device, follow these steps carefully:
 5. **Report Any Issues**  
    If you encounter bugs or unexpected behavior, please report them via the **Issues** section in this repository. Your feedback is extremely valuable and helps us improve the final product before the stable release.
 
-> ⚠️ If on macOS navigate to [macOSDownload](./macOSDownload.md) the file will typically be in `.app` format for macOS systems.
+> ⚠️ If on macOS navigate to [macOSDownload](./macOSDownload.md) the file will typically be in `.app` or `.dmg` format for macOS systems.
 > Need a Installation Guide for macOS? Vist [macOSInstallationGuide](./macOSInstallationGuide.md)
