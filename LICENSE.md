@@ -39,7 +39,7 @@ This license agreement is effective as of **May 19, 2025**, and remains in effec
 Using a VPN, proxy, or any anonymizing service **does not exempt** you from the terms of this license. All usage, regardless of network masking, is subject to the same legal and technical standards outlined in this agreement.
 
 ## Use of the Name "**Nexus**"
-The name **Nexus** is a registered trademark of **Nexus.inc** or **Nexus™** and is protected under intellectual property laws. Any unauthorized use of the name **Nexus** in personal, commercial, or any other context is strictly prohibited.
+The name **Nexus** is a registered trademark of **Nexus.inc** or **Nexus™** is protected under intellectual property laws. Any unauthorized use of the name **Nexus** in personal, commercial, or any other context is strictly prohibited.
 
 It is important to clarify that **Nexus** Browser is an original creation, developed independently and without influence from any existing projects, including but not limited to any project with a similar name.
 
