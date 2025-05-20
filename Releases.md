@@ -1,4 +1,4 @@
-# Nexus Browser v0.1-demo Release Notes
+# Nexus Browser `v0.1-demo` Release Notes
 
 ## Introduction
 Welcome to the first public demo release of the Nexus Browser. This is an early version designed to give users a glimpse of the features and the overall experience we are building. Please note this is a work in progress, so some features are not yet fully implemented, and bugs may exist.
