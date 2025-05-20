@@ -32,7 +32,7 @@ Welcome to the first public demo release of the Nexus Browser. This is an early 
 3. Once installed, launch Nexus Browser from your desktop or start menu.
 4. We recommend restarting your computer after installation to ensure all components load properly.
 5. Use the sidebar to access help and report issues.
-#- More information vist InstallationGuide
+> More information vist InstallationGuide
 
 ## How to Use This Demo
 - Explore the core features and provide feedback.
