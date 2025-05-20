@@ -1,160 +1,118 @@
-import os
-import sys
-import subprocess
-import logging
-import time
+#include <iostream>
+#include <filesystem>
+#include <vector>
+#include <string>
+#include <cstdlib>
+#include <csignal>
+#include <thread>
+#include <chrono>
+#include <fstream>
 
-try:
-    import questionary
-except ImportError:
-    print("Installing required package 'questionary'...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "questionary"])
-    import questionary
+namespace fs = std::filesystem;
 
-CONFIG_DIR = "./vpn_configs"
+// Simple logger
+void log(const std::string& msg) {
+    std::ofstream logfile("vpn_client.log", std::ios_base::app);
+    logfile << "[" << std::time(nullptr) << "] " << msg << std::endl;
+}
 
-logging.basicConfig(
-    filename="vpn_client.log",
-    level=logging.INFO,
-    format="%(asctime)s %(levelname)s: %(message)s"
-)
+// List config files for a protocol
+std::vector<fs::path> list_configs(const std::string& protocol, const std::string& config_dir) {
+    std::vector<fs::path> configs;
+    for (const auto& entry : fs::directory_iterator(config_dir)) {
+        if (protocol == "OpenVPN" && entry.path().extension() == ".ovpn") {
+            configs.push_back(entry.path());
+        }
+        if (protocol == "WireGuard" && entry.path().extension() == ".conf") {
+            configs.push_back(entry.path());
+        }
+    }
+    return configs;
+}
 
-def list_configs(protocol):
-    configs = []
-    if not os.path.exists(CONFIG_DIR):
-        print(f"Config directory '{CONFIG_DIR}' does not exist. Please create it and add your VPN config files.")
-        sys.exit(1)
-    for f in os.listdir(CONFIG_DIR):
-        if protocol == "OpenVPN" and f.lower().endswith(".ovpn"):
-            configs.append(f)
-        elif protocol == "WireGuard" and f.lower().endswith(".conf"):
-            configs.append(f)
-    return configs
+// Global process PID
+pid_t child_pid = -1;
 
-def select_protocol():
-    return questionary.select(
-        "Choose VPN protocol:",
-        choices=["OpenVPN", "WireGuard", "Exit"]
-    ).ask()
+// Signal handler for Ctrl+C
+void signal_handler(int signum) {
+    if (child_pid > 0) {
+        std::cout << "\nDisconnecting..." << std::endl;
+        kill(child_pid, SIGTERM);
+        log("Disconnected VPN (terminated child process)");
+    }
+    std::exit(0);
+}
 
-def select_config(configs):
-    choices = []
-    for cfg in configs:
-        if cfg.lower().endswith('.ovpn'):
-            country = cfg.replace('openvpn_', '').replace('.ovpn', '').upper()
-        else:
-            country = cfg.replace('wg_', '').replace('.conf', '').upper()
-        choices.append(f"{country} ({cfg})")
-    answer = questionary.select(
-        "Select country/server:",
-        choices=choices
-    ).ask()
-    for cfg in configs:
-        if cfg in answer:
-            return cfg
-    # fallback
-    return configs[choices.index(answer)]
+int main() {
+    std::string config_dir = "./vpn_configs";
+    if (!fs::exists(config_dir) || !fs::is_directory(config_dir)) {
+        std::cerr << "Config directory " << config_dir << " does not exist. Please create and add config files." << std::endl;
+        return 1;
+    }
 
-def start_openvpn(config_path):
-    try:
-        logging.info(f"Starting OpenVPN with config {config_path}")
-        cmd = ["sudo", "openvpn", "--config", config_path]
-        proc = subprocess.Popen(cmd)
-        logging.info(f"OpenVPN process started (PID: {proc.pid})")
-        return proc
-    except Exception as e:
-        logging.error(f"OpenVPN error: {e}")
-        print(f"Error starting OpenVPN: {e}")
-        return None
+    std::cout << "=== Nexus VPN Client (C++) ===" << std::endl;
 
-def start_wireguard(config_path):
-    try:
-        logging.info(f"Starting WireGuard with config {config_path}")
-        cmd = ["sudo", "wg-quick", "up", config_path]
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode == 0:
-            logging.info("WireGuard started successfully")
-            return True
-        else:
-            logging.error(f"WireGuard error: {result.stderr}")
-            print(f"WireGuard error: {result.stderr}")
-            return False
-    except Exception as e:
-        logging.error(f"WireGuard error: {e}")
-        print(f"Error starting WireGuard: {e}")
-        return False
+    signal(SIGINT, signal_handler);
 
-def stop_openvpn(proc):
-    try:
-        proc.terminate()
-        proc.wait(timeout=10)
-        logging.info("OpenVPN terminated")
-        print("OpenVPN disconnected.")
-    except Exception as e:
-        logging.error(f"OpenVPN termination error: {e}")
-        print(f"Error terminating OpenVPN: {e}")
+    while (true) {
+        std::cout << "\nSelect protocol:\n1. OpenVPN\n2. WireGuard\n3. Exit\n> ";
+        int proto_choice;
+        std::cin >> proto_choice;
+        std::cin.ignore();
+        std::string protocol;
+        if (proto_choice == 1) protocol = "OpenVPN";
+        else if (proto_choice == 2) protocol = "WireGuard";
+        else break;
 
-def stop_wireguard(config_path):
-    try:
-        cmd = ["sudo", "wg-quick", "down", config_path]
-        result = subprocess.run(cmd, capture_output=True, text=True)
-        if result.returncode == 0:
-            logging.info("WireGuard terminated")
-            print("WireGuard disconnected.")
-        else:
-            logging.error(f"WireGuard termination error: {result.stderr}")
-            print(f"WireGuard termination error: {result.stderr}")
-    except Exception as e:
-        logging.error(f"WireGuard termination error: {e}")
-        print(f"Error terminating WireGuard: {e}")
+        auto configs = list_configs(protocol, config_dir);
+        if (configs.empty()) {
+            std::cout << "No " << protocol << " config files found in " << config_dir << std::endl;
+            continue;
+        }
+        std::cout << "Available servers:" << std::endl;
+        for (size_t i = 0; i < configs.size(); ++i)
+            std::cout << i+1 << ". " << configs[i].filename() << std::endl;
+        std::cout << "Select server [1-" << configs.size() << "]: ";
+        size_t cfg_idx;
+        std::cin >> cfg_idx;
+        std::cin.ignore();
+        if (cfg_idx < 1 || cfg_idx > configs.size()) {
+            std::cout << "Invalid selection." << std::endl;
+            continue;
+        }
+        std::string cfg_path = configs[cfg_idx-1].string();
 
-def main():
-    print("=== Nexus VPN Client ===\n")
-    current_proc = None
-    current_protocol = None
-    current_cfg = None
+        std::cout << "Connecting to " << configs[cfg_idx-1].filename() << "..." << std::endl;
+        log("Connecting to " + configs[cfg_idx-1].filename().string());
 
-    while True:
-        protocol = select_protocol()
-        if protocol == "Exit":
-            print("Goodbye!")
-            break
+        if (protocol == "OpenVPN") {
+            child_pid = fork();
+            if (child_pid == 0) {
+                execlp("sudo", "sudo", "openvpn", "--config", cfg_path.c_str(), (char*) nullptr);
+                std::cerr << "Failed to exec openvpn!" << std::endl;
+                std::exit(1);
+            }
+        } else if (protocol == "WireGuard") {
+            child_pid = fork();
+            if (child_pid == 0) {
+                execlp("sudo", "sudo", "wg-quick", "up", cfg_path.c_str(), (char*) nullptr);
+                std::cerr << "Failed to exec wg-quick!" << std::endl;
+                std::exit(1);
+            }
+        }
 
-        configs = list_configs(protocol)
-        if not configs:
-            print(f"No {protocol} configs found in {CONFIG_DIR}")
-            continue
+        std::cout << "Connection established! Press Ctrl+C to disconnect." << std::endl;
+        log(protocol + " connection established.");
 
-        cfg = select_config(configs)
-        cfg_path = os.path.join(CONFIG_DIR, cfg)
-        print(f"Connecting to {cfg}...")
+        // Wait for Ctrl+C
+        while (true) std::this_thread::sleep_for(std::chrono::seconds(1));
 
-        if protocol == "OpenVPN":
-            current_proc = start_openvpn(cfg_path)
-            current_protocol = "OpenVPN"
-            current_cfg = None
-            if not current_proc:
-                continue
-        elif protocol == "WireGuard":
-            success = start_wireguard(cfg_path)
-            current_proc = None
-            current_protocol = "WireGuard"
-            current_cfg = cfg_path
-            if not success:
-                continue
-
-        print("Connection established! Press Ctrl+C to disconnect.")
-
-        try:
-            while True:
-                time.sleep(1)
-        except KeyboardInterrupt:
-            print("\nDisconnecting...")
-            if current_protocol == "OpenVPN" and current_proc:
-                stop_openvpn(current_proc)
-            elif current_protocol == "WireGuard" and current_cfg:
-                stop_wireguard(current_cfg)
-            print("Disconnected.\n")
-
-if __name__ == "__main__":
-    main()
+        // On disconnect
+        if (protocol == "WireGuard") {
+            std::string down_cmd = "sudo wg-quick down '" + cfg_path + "'";
+            system(down_cmd.c_str());
+            log("WireGuard disconnected.");
+        }
+    }
+    return 0;
+}
