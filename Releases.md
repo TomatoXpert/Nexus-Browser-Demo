@@ -23,7 +23,8 @@ Welcome to the first public demo release of the Nexus Browser. This is an early 
 - Not all browser extensions are supported yet.
 - Background music may sometimes overlap or not stop correctly when tabs change.
 - Advanced privacy and security features are still under development.
-- Performance optimizations are ongoing; expect some lag on low-end devices.
+- Performance optimizations are ongoing, expect some lag on low-end devices.
+- Css pack not rendering.
 
 ## How to Install
 1. [Download](./Download.md) the installer from this repository.
