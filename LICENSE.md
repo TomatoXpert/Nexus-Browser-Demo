@@ -5,6 +5,8 @@
 
 This software and its source code are the intellectual property of Nexus Browser. Unauthorized copying, distribution, or commercial use is prohibited.
 
+---
+
 ## Permissions  
 You are allowed to:  
 - Download and use the Nexus Browser for personal use only.  
@@ -19,15 +21,11 @@ You **may NOT**:
 - Claim the Nexus Browser or any part of its code as your own.  
 - Modify the source code directly outside of extensions or mods.
 
----
-
 ## Disclaimer and Liability
 Nexus Browser is provided "as is" without any express or implied warranties. The developers, contributors, and distributors disclaim all warranties, including but not limited to merchantability, fitness for a particular purpose, and non-infringement. Use of this software is at your own risk. Under no circumstances shall the Nexus Browser team be liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use the software, including data loss, system failure, or security breaches.
 
 ## Originality Statement
 Nexus Browser is an original software project created independently by the Nexus Browser team. We explicitly state that Nexus Browser is not a copy, clone, or derivative of any existing browser, including the so-called “NewSysBrowser” or any other software bearing resemblance to outdated or legacy systems such as Windows XP-era browsers. Any resemblance to such software is purely coincidental and unintentional. This statement is made to clarify our commitment to originality and to avoid any claims of intellectual property infringement.
-
----
 
 ## Reporting Issues
 As Nexus Browser is currently in active development, users are encouraged to report any bugs, glitches, or unexpected behavior they encounter while using the software. Reporting issues helps us identify problems early and improve the browser’s stability and security before the official release. We appreciate detailed reports including steps to reproduce the issue, screenshots, and any relevant system information. Your cooperation is vital to delivering a polished final product.
