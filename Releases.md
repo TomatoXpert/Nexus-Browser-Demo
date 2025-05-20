@@ -44,7 +44,7 @@ Welcome to the first public demo release of the Nexus Browser. This is an early 
 Your feedback is essential to improve Nexus. Please use the built-in sidebar form to submit any bugs, crashes, or suggestions you encounter. This helps us avoid repeating problems in future releases.
 
 ## License Reminder
-By using this demo, you agree to our [license](./LICENCE) terms. You may copy the code for personal use but are not allowed to redistribute, sell, or share it. Modifications must be done via extensions or mods — direct edits to the browser code are prohibited.
+By using this demo, you agree to our [license](./LICENSE.md) terms. You may copy the code for personal use but are not allowed to redistribute, sell, or share it. Modifications must be done via extensions or mods — direct edits to the browser code are prohibited.
 
 ---
 
