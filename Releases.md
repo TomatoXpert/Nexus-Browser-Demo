@@ -14,7 +14,7 @@ Welcome to the first public demo release of the Nexus Browser. This is an early 
 
 ## AI Versions
 - **AI:** ChatGPT **Version:** o4 turbo.
-- **AI:** Gemini AI **Version:** 2.5 pro (experimental).
+- **AI:** Gemini AI **Version:** 2.5 pro flash.
 - **AI:** Enhance AI **Version:** 3.1 pro turbo.
 - **AI:** Imagen AI **Version:** 5.0
 
