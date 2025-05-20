@@ -20,7 +20,7 @@ You **may NOT**:
 - Use the source code or any derivative work for commercial purposes.  
 - Claim the Nexus Browser or any part of its code as your own.  
 - Modify the source code directly outside of extensions or mods.
-
+>⚠️ Even if only a few restrictions are listed, **any harmful, abusive, inappropriate or malicious behavior whether listed or not is strictly prohibited** and may lead to consequences.
 ## Disclaimer and Liability
 Nexus Browser is provided "as is" without any express or implied warranties. The developers, contributors, and distributors disclaim all warranties, including but not limited to merchantability, fitness for a particular purpose, and non-infringement. Use of this software is at your own risk. Under no circumstances shall the Nexus Browser team be liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use the software, including data loss, system failure, or security breaches.
 
