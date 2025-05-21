@@ -1,8 +1,8 @@
-
 #include <iostream>
 #include <filesystem>
 #include <vector>
 #include <string>
+#include <map>
 #include <cstdlib>
 #include <csignal>
 #include <thread>
@@ -15,20 +15,6 @@ namespace fs = std::filesystem;
 void log(const std::string& msg) {
     std::ofstream logfile("vpn_client.log", std::ios_base::app);
     logfile << "[" << std::time(nullptr) << "] " << msg << std::endl;
-}
-
-// List config files for a protocol
-std::vector<fs::path> list_configs(const std::string& protocol, const std::string& config_dir) {
-    std::vector<fs::path> configs;
-    for (const auto& entry : fs::directory_iterator(config_dir)) {
-        if (protocol == "OpenVPN" && entry.path().extension() == ".ovpn") {
-            configs.push_back(entry.path());
-        }
-        if (protocol == "WireGuard" && entry.path().extension() == ".conf") {
-            configs.push_back(entry.path());
-        }
-    }
-    return configs;
 }
 
 // Global process PID
@@ -61,30 +47,51 @@ int main() {
         std::cin >> proto_choice;
         std::cin.ignore();
         std::string protocol;
-        if (proto_choice == 1) protocol = "OpenVPN";
+        if (proto_choice == 1) protocol = "OpenVPN"; 
         else if (proto_choice == 2) protocol = "WireGuard";
         else break;
 
-        auto configs = list_configs(protocol, config_dir);
-        if (configs.empty()) {
+        // Map country name to config path
+        std::map<std::string, fs::path> country_configs;
+        for (const auto& entry : fs::directory_iterator(config_dir)) {
+            if (protocol == "OpenVPN" && entry.path().extension() == ".ovpn") {
+                std::string country = entry.path().stem().string();
+                country_configs[country] = entry.path();
+            }
+            if (protocol == "WireGuard" && entry.path().extension() == ".conf") {
+                std::string country = entry.path().stem().string();
+                country_configs[country] = entry.path();
+            }
+        }
+
+        if (country_configs.empty()) {
             std::cout << "No " << protocol << " config files found in " << config_dir << std::endl;
             continue;
         }
-        std::cout << "Available servers:" << std::endl;
-        for (size_t i = 0; i < configs.size(); ++i)
-            std::cout << i+1 << ". " << configs[i].filename() << std::endl;
-        std::cout << "Select server [1-" << configs.size() << "]: ";
-        size_t cfg_idx;
-        std::cin >> cfg_idx;
+
+        // List available countries
+        std::vector<std::string> countries;
+        std::cout << "Available countries:" << std::endl;
+        int idx = 1;
+        for (const auto& pair : country_configs) {
+            std::cout << idx << ". " << pair.first << std::endl;
+            countries.push_back(pair.first);
+            ++idx;
+        }
+
+        std::cout << "Select country [1-" << countries.size() << "]: ";
+        size_t country_idx;
+        std::cin >> country_idx;
         std::cin.ignore();
-        if (cfg_idx < 1 || cfg_idx > configs.size()) {
+        if (country_idx < 1 || country_idx > countries.size()) {
             std::cout << "Invalid selection." << std::endl;
             continue;
         }
-        std::string cfg_path = configs[cfg_idx-1].string();
+        std::string picked_country = countries[country_idx - 1];
+        std::string cfg_path = country_configs[picked_country].string();
 
-        std::cout << "Connecting to " << configs[cfg_idx-1].filename() << "..." << std::endl;
-        log("Connecting to " + configs[cfg_idx-1].filename().string());
+        std::cout << "Connecting to server in " << picked_country << "..." << std::endl;
+        log("Connecting to " + picked_country);
 
         if (protocol == "OpenVPN") {
             child_pid = fork();
@@ -108,13 +115,7 @@ int main() {
         // Wait for Ctrl+C
         while (true) std::this_thread::sleep_for(std::chrono::seconds(1));
 
-        // On disconnect
-        if (protocol == "WireGuard") {
-            std::string down_cmd = "sudo wg-quick down '" + cfg_path + "'";
-            system(down_cmd.c_str());
-            log("WireGuard disconnected.");
-        }
+        ever exits.
     }
     return 0;
 }
-
