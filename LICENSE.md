@@ -2,7 +2,7 @@
 
 ## Copyright Notice  
 © 2025 **Nexus** Browser. All rights reserved.
-
+**Nexus®**
 This software and its source code are the intellectual property of **Nexus** Browser. Unauthorized copying, distribution, or commercial use is prohibited.
 
 ---
