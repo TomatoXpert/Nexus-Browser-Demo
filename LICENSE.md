@@ -3,8 +3,7 @@
 ## Copyright Notice  
 © 2025 **Nexus** Browser. All rights reserved.
 
-This software and its source code are the intellectual property of **Nexus** Browser. Unauthorized copying, distribution, or commercial use is prohibited. **Nexus®** is legally protected from unauthorized use.
-
+This software and its source code are the intellectual property of **Nexus** Browser. Unauthorized copying, distribution, or commercial use is prohibited. **Nexus®** is legally protected from unauthorized use and DMCA (Digital Millennium Copyright Act)
 ---
 
 ## Permissions  
@@ -21,7 +20,7 @@ You **may NOT**:
 - Claim the **Nexus** Browser or any part of its code as your own.  
 - Modify the source code directly outside of extensions or mods.
 
-> ⚠️ Even if only a few restrictions are listed, **any harmful, abusive, inappropriate, or malicious behavior, whether listed or not, is strictly prohibited** and may lead to consequences. __DMCA__ (Digital Millennium Copyright Act)
+> ⚠️ Even if only a few restrictions are listed, **any harmful, abusive, inappropriate, or malicious behavior, whether listed or not, is strictly prohibited** and may lead to consequences. 
 
 ## Disclaimer and Liability
 **Nexus** Browser is provided "as is" without any express or implied warranties. The developers, contributors, and distributors disclaim all warranties, including but not limited to merchantability, fitness for a particular purpose, and non-infringement.
